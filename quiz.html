@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Tainah</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <h1>Quiz sobre a Tainah! 🧠</h1>
+
+  <div id="quiz-container">
+    <p id="pergunta"></p>
+    <div id="respostas"></div>
+  </div>
+
+  <div class="buttons"></div>
+    <button class="btn" onclick="window.location.href='index.html'">Voltar ao Início</button>
+    <button class="btn" onclick="startQuiz()">Recomeçar Quiz</button>
+  </div>
+  
+  <script>
+    const perguntas = [
+      { 
+        pergunta: "Qual a cor favorita da Tainah?", 
+        respostas: ["Azul", "Vermelho", "Verde", "Roxo"], 
+        respostaCerta: "Azul"
+      },
+      { 
+        pergunta: "Qual o filme favorito da Tainah?", 
+        respostas: ["Inception", "Titanic", "Harry Potter", "Vingadores"], 
+        respostaCerta: "Harry Potter"
+      },
+      // Continue com mais perguntas...
+    ];
+
+    let perguntaAtual = 0;
+
+    // Função para mostrar uma pergunta
+    function mostrarPergunta() {
+      const pergunta = perguntas[perguntaAtual];
+      document.getElementById("pergunta").textContent = pergunta.pergunta;
+
+      const respostasDiv = document.getElementById("respostas");
+      respostasDiv.innerHTML = "";
+      pergunta.respostas.forEach((resposta) => {
+        const btn = document.createElement("button");
+        btn.textContent = resposta;
+        btn.onclick = () => verificarResposta(resposta);
+        respostasDiv.appendChild(btn);
+      });
+    }
+
+    // Função para verificar a resposta
+    function verificarResposta(resposta) {
+      const pergunta = perguntas[perguntaAtual];
+      if (resposta === pergunta.respostaCerta) {
+        alert("Acertou!");
+      } else {
+        alert("Errou! 😅");
+      }
+      perguntaAtual++;
+      if (perguntaAtual < perguntas.length) {
+        mostrarPergunta();
+      } else {
+        alert("Parabéns, você terminou o quiz!");
+        window.location.href = 'index.html'; // Volta ao início
+      }
+    }
+
+    // Iniciar quiz
+    mostrarPergunta();
+  </script>
+
+</body>
+</html>
