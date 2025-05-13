@@ -4,42 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Momentos Marcantes</title>
-  
-  <!-- Link CSS do Swiper -->
+
+  <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
   <link rel="stylesheet" href="css/style.css">
-  
-  <style>
-    /* Estilo das abas */
-    .tabs {
-      display: flex;
-      overflow-x: auto;
-      margin: 20px 0;
-      justify-content: center;
-    }
-    .tab {
-      padding: 10px 20px;
-      background: #ff99c8;
-      margin: 0 5px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
-      color: white;
-      transition: background 0.3s;
-    }
-    .tab:hover, .tab.active {
-      background: #ff66a3;
-    }
-    
-    /* Conteúdo escondido inicialmente */
-    .tab-content {
-      display: none;
-    }
-    .tab-content.active {
-      display: block;
-    }
 
-    /* Swiper imagens */
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background: linear-gradient(to bottom, #ffe6f0 0%, #ffd1e0 50%, #ffedf7 100%);
+    }
+    h1 {
+      font-size: 2em;
+      color: #ff66a3;
+      margin: 20px 0;
+    }
+    /* Carrossel no mesmo estilo do index */
     .swiper {
       width: 90%;
       height: 300px;
@@ -51,263 +35,62 @@
       object-fit: cover;
       border-radius: 20px;
     }
-
-    /* Quiz */
-    #quiz p {
-      font-size: 1.2em;
-      margin-bottom: 10px;
+    /* Botão de retorno */
+    .footer-button {
+      margin: 40px 0;
     }
-    #quiz button {
-      display: block;
-      margin: 10px auto;
-      padding: 10px 20px;
-      background: #ff66a3;
-      border: none;
+    .footer-button .btn {
+      background-color: #ff66a3;
       color: white;
-      border-radius: 20px;
       font-size: 1em;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 20px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 60%;
+      max-width: 300px;
     }
-    #quiz button:hover {
-      background: #ff3385;
-    }
-    #resultado {
-      margin-top: 15px;
-      font-weight: bold;
-    }
-    /* Animação de fade */
-    .fade-out {
-    opacity: 0;
-    transition: opacity 0.5s;
-    }
-    .fade-in {
-    opacity: 1;
-    transition: opacity 0.5s;
+    .footer-button .btn:hover {
+      background-color: #ff3385;
     }
   </style>
 </head>
-
 <body>
 
-<div class="container">
+  <h1>Momentos Marcantes</h1>
 
-  <h1>Teus Momentos</h1>
-
-  <!-- Abas -->
-  <div class="tabs">
-    <div class="tab active" onclick="openTab('ano1')">1º Ano</div>
-    <div class="tab" onclick="openTab('ano2')">2º Ano</div>
-    <div class="tab" onclick="openTab('ano3')">3º Ano</div>
-    <div class="tab" onclick="openTab('ano4')">4º Ano</div>
-    <div class="tab" onclick="openTab('ano5')">5º Ano</div>
-    <div class="tab" onclick="openTab('ano6')">6º Ano</div>
-  </div>
-
-  <!-- Conteúdo das Abas -->
-
-  <!-- 1 Ano -->
-  <div id="ano1" class="tab-content active">
-
-    <!-- Carrossel de Fotos -->
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="img/ano1_1.jpg" alt="Ano 1 - Foto 1"></div>
-        <div class="swiper-slide"><img src="img/ano1_2.jpg" alt="Ano 1 - Foto 2"></div>
-        <div class="swiper-slide"><img src="img/ano1_3.jpg" alt="Ano 1 - Foto 3"></div>
-      </div>
-
-      <!-- Botões de Navegação -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
+  <!-- Carrossel de Fotos -->
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="img/img1.jpg" alt="Momento 1"></div>
+      <div class="swiper-slide"><img src="img/img1.jpg" alt="Momento 2"></div>
+      <div class="swiper-slide"><img src="img/img1.jpg" alt="Momento 3"></div>
+      <!-- adicione quantas fotos quiser -->
     </div>
 
-    <!-- Quiz -->
-    <div id="quiz">
-      <p>Onde fomos no nosso primeiro passeio juntos?</p>
-      <button onclick="responderQuiz(true)">Parque</button>
-      <button onclick="responderQuiz(false)">Cinema</button>
-      <button onclick="responderQuiz(false)">Restaurante</button>
-      <p id="resultado"></p>
-    </div>
-
+    <!-- Navegação do Swiper -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
 
-  <!-- 2 Ano -->
-  <div id="ano2" class="tab-content">
-    <!-- Carrossel de Fotos -->
-    <div class="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="img/ano2_1.jpg" alt="Ano 2 - Foto 1"></div>
-          <div class="swiper-slide"><img src="img/ano2_2.jpg" alt="Ano 2 - Foto 2"></div>
-          <div class="swiper-slide"><img src="img/ano2_3.jpg" alt="Ano 2 - Foto 3"></div>
-        </div>
-  
-        <!-- Botões de Navegação -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-      </div>
-  
-      <!-- Quiz -->
-      <div id="quiz">
-        <p>pergunta ano 2?</p>
-        <button onclick="responderQuiz(true)">Parque2</button>
-        <button onclick="responderQuiz(false)">Cinema2</button>
-        <button onclick="responderQuiz(false)">Restaurante2</button>
-        <p id="resultado"></p>
-      </div>
+  <!-- Botão Voltar ao Início -->
+  <div class="footer-button">
+    <button class="btn" onclick="location.href='index.html'">
+      ← Voltar ao Início
+    </button>
   </div>
 
-   <!-- 3 Ano -->
-  <div id="ano3" class="tab-content">
-        <!-- Carrossel de Fotos -->
-        <div class="swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide"><img src="img/ano2_1.jpg" alt="Ano 2 - Foto 1"></div>
-              <div class="swiper-slide"><img src="img/ano2_2.jpg" alt="Ano 2 - Foto 2"></div>
-              <div class="swiper-slide"><img src="img/ano2_3.jpg" alt="Ano 2 - Foto 3"></div>
-            </div>
-      
-            <!-- Botões de Navegação -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-          </div>
-      
-          <!-- Quiz -->
-          <div id="quiz">
-            <p>pergunta ano 2?</p>
-            <button onclick="responderQuiz(true)">Parque2</button>
-            <button onclick="responderQuiz(false)">Cinema2</button>
-            <button onclick="responderQuiz(false)">Restaurante2</button>
-            <p id="resultado"></p>
-          </div>
-  </div>
-
-   <!-- 4 Ano -->
-  <div id="ano4" class="tab-content">
-        <!-- Carrossel de Fotos -->
-        <div class="swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide"><img src="img/ano2_1.jpg" alt="Ano 2 - Foto 1"></div>
-              <div class="swiper-slide"><img src="img/ano2_2.jpg" alt="Ano 2 - Foto 2"></div>
-              <div class="swiper-slide"><img src="img/ano2_3.jpg" alt="Ano 2 - Foto 3"></div>
-            </div>
-      
-            <!-- Botões de Navegação -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-          </div>
-      
-          <!-- Quiz -->
-          <div id="quiz">
-            <p>pergunta ano 2?</p>
-            <button onclick="responderQuiz(true)">Parque2</button>
-            <button onclick="responderQuiz(false)">Cinema2</button>
-            <button onclick="responderQuiz(false)">Restaurante2</button>
-            <p id="resultado"></p>
-          </div>
-  </div>
-
-   <!-- 5 Ano -->
-  <div id="ano5" class="tab-content">
-        <!-- Carrossel de Fotos -->
-        <div class="swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide"><img src="img/ano2_1.jpg" alt="Ano 2 - Foto 1"></div>
-              <div class="swiper-slide"><img src="img/ano2_2.jpg" alt="Ano 2 - Foto 2"></div>
-              <div class="swiper-slide"><img src="img/ano2_3.jpg" alt="Ano 2 - Foto 3"></div>
-            </div>
-      
-            <!-- Botões de Navegação -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-          </div>
-      
-          <!-- Quiz -->
-          <div id="quiz">
-            <p>pergunta ano 2?</p>
-            <button onclick="responderQuiz(true)">Parque2</button>
-            <button onclick="responderQuiz(false)">Cinema2</button>
-            <button onclick="responderQuiz(false)">Restaurante2</button>
-            <p id="resultado"></p>
-          </div>
-  </div>
-
-   <!-- 6 Ano -->
-  <div id="ano6" class="tab-content">
-        <!-- Carrossel de Fotos -->
-        <div class="swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide"><img src="img/ano2_1.jpg" alt="Ano 2 - Foto 1"></div>
-              <div class="swiper-slide"><img src="img/ano2_2.jpg" alt="Ano 2 - Foto 2"></div>
-              <div class="swiper-slide"><img src="img/ano2_3.jpg" alt="Ano 2 - Foto 3"></div>
-            </div>
-      
-            <!-- Botões de Navegação -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-          </div>
-      
-          <!-- Quiz -->
-          <div id="quiz">
-            <p>pergunta ano 2?</p>
-            <button onclick="responderQuiz(true)">Parque2</button>
-            <button onclick="responderQuiz(false)">Cinema2</button>
-            <button onclick="responderQuiz(false)">Restaurante2</button>
-            <p id="resultado"></p>
-          </div>
-  </div>
-
-</div>
-
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
-<!-- Script Tabs e Quiz -->
-<script>
-// Swiper
-const swiper = new Swiper('.swiper', {
-    loop: true,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  });
-
-  // Função de Tabs com animação
-  function openTab(tabId) {
-    const tabs = document.querySelectorAll('.tab-content');
-    const tabButtons = document.querySelectorAll('.tab');
-
-    tabs.forEach(tab => {
-      if (tab.classList.contains('active')) {
-        tab.classList.add('fade-out');
-        tab.classList.remove('fade-in');
-        setTimeout(() => {
-          tab.classList.remove('active');
-          tab.classList.remove('fade-out');
-        }, 500); // 500ms = tempo da transição
+  <!-- Swiper JS e inicialização -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
       }
     });
-
-    tabButtons.forEach(btn => btn.classList.remove('active'));
-
-    const newTab = document.getElementById(tabId);
-    newTab.classList.add('active', 'fade-in');
-    event.target.classList.add('active');
-  }
-
-  // Função de Quiz
-  function responderQuiz(correto) {
-    const resultado = document.getElementById('resultado');
-    if (correto) {
-      resultado.textContent = "Acertou, meu amor! ❤️";
-      resultado.style.color = "green";
-    } else {
-      resultado.textContent = "Errou, mas eu te amo assim mesmo! 😜";
-      resultado.style.color = "red";
-    }
-  }
-</script>
-
+  </script>
 </body>
 </html>

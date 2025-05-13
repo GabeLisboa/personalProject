@@ -3,75 +3,115 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz Tainah</title>
+  <title>Quiz sobre a Tainah</title>
+
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Container centralizado para o quiz */
+    .quiz-container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .quiz-container h1 {
+      font-size: 2em;
+      color: #ff4d88;
+      margin-bottom: 20px;
+    }
+    .quiz-question {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+    .quiz-answers button {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      margin: 10px auto;
+      padding: 15px 0;
+      background: #ff66a3;
+      border: none;
+      color: white;
+      border-radius: 20px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .quiz-answers button:hover {
+      background: #ff3385;
+    }
+    .quiz-result {
+      margin-top: 30px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #333;
+    }
+    .footer-button {
+      margin: 60px 0 20px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
+  <div class="quiz-container">
+    <h1>Quiz sobre a Tainah! 🧠</h1>
+    <div id="quiz">
+      <p id="question" class="quiz-question"></p>
+      <div id="answers" class="quiz-answers"></div>
+      <p id="result" class="quiz-result"></p>
+    </div>
 
-  <h1>Quiz sobre a Tainah! 🧠</h1>
-
-  <div id="quiz-container">
-    <p id="pergunta"></p>
-    <div id="respostas"></div>
+    <!-- Botão de retorno -->
+    <div class="footer-button">
+      <button class="btn" onclick="location.href='index.html'">
+        ← Voltar ao Início
+      </button>
+    </div>
   </div>
 
-  <div class="buttons"></div>
-    <button class="btn" onclick="window.location.href='index.html'">Voltar ao Início</button>
-    <button class="btn" onclick="startQuiz()">Recomeçar Quiz</button>
-  </div>
-  
   <script>
     const perguntas = [
-      { 
-        pergunta: "Qual a cor favorita da Tainah?", 
-        respostas: ["Azul", "Vermelho", "Verde", "Roxo"], 
-        respostaCerta: "Azul"
-      },
-      { 
-        pergunta: "Qual o filme favorito da Tainah?", 
-        respostas: ["Inception", "Titanic", "Harry Potter", "Vingadores"], 
-        respostaCerta: "Harry Potter"
-      },
-      // Continue com mais perguntas...
+      { pergunta: "Qual o prato de comida preferido de Tainah?", respostas: ["Churrasco","Sushi","Hamburguer","Pizza"], certa: "Sushi" },
+      { pergunta: "Qual série preferida?", respostas: ["Game of Thrones","House","Stranger Things","The Walking Dead"], certa: "The Walking Dead" },
+      { pergunta: "Qual flor ela mais gosta?", respostas: ["Peônias","Rosa","Girassol","Orquídea"], certa: "Orquídea" },
+      { pergunta: "Em que ano ela se mudou para Portugal?", respostas: ["2018","2019","2020","2021"], certa: "2018" },
+      { pergunta: "Qual sabor de gelado ela mais gostou?", respostas: ["Lima e manjericão com azeite","Morango","Maracujá","Pistachio"], certa: "Lima e manjericão com azeite" },
+      { pergunta: "Qual o prato de comida preferido de Tainah?", respostas: ["Churrasco","Sushi","Hamburguer","Pizza"], certa: "Sushi" },
+      { pergunta: "Qual o prato de comida preferido de Tainah?", respostas: ["Churrasco","Sushi","Hamburguer","Pizza"], certa: "Sushi" }
+      // Adicione mais perguntas aqui
     ];
+    let atual = 0;
+    let acertos = 0;
 
-    let perguntaAtual = 0;
-
-    // Função para mostrar uma pergunta
     function mostrarPergunta() {
-      const pergunta = perguntas[perguntaAtual];
-      document.getElementById("pergunta").textContent = pergunta.pergunta;
-
-      const respostasDiv = document.getElementById("respostas");
-      respostasDiv.innerHTML = "";
-      pergunta.respostas.forEach((resposta) => {
-        const btn = document.createElement("button");
-        btn.textContent = resposta;
-        btn.onclick = () => verificarResposta(resposta);
-        respostasDiv.appendChild(btn);
+      const q = perguntas[atual];
+      document.getElementById('question').textContent = q.pergunta;
+      const ansDiv = document.getElementById('answers');
+      ansDiv.innerHTML = '';
+      q.respostas.forEach(res => {
+        const btn = document.createElement('button');
+        btn.textContent = res;
+        btn.onclick = () => verificar(res);
+        ansDiv.appendChild(btn);
       });
     }
 
-    // Função para verificar a resposta
-    function verificarResposta(resposta) {
-      const pergunta = perguntas[perguntaAtual];
-      if (resposta === pergunta.respostaCerta) {
-        alert("Acertou!");
-      } else {
-        alert("Errou! 😅");
-      }
-      perguntaAtual++;
-      if (perguntaAtual < perguntas.length) {
+    function verificar(selec) {
+      if (selec === perguntas[atual].certa) acertos++;
+      atual++;
+      if (atual < perguntas.length) {
         mostrarPergunta();
       } else {
-        alert("Parabéns, você terminou o quiz!");
-        window.location.href = 'index.html'; // Volta ao início
+        mostrarResultado();
       }
     }
 
-    // Iniciar quiz
-    mostrarPergunta();
-  </script>
+    function mostrarResultado() {
+      document.getElementById('quiz').innerHTML =
+        `<h2 class="quiz-result">Você acertou ${acertos} de ${perguntas.length}! ❤️</h2>`;
+    }
 
+    // Inicia o quiz ao carregar a página
+    document.addEventListener('DOMContentLoaded', mostrarPergunta);
+  </script>
 </body>
 </html>
