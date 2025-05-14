@@ -33,8 +33,8 @@
     .flip-container {
       perspective: 1000px;
       width: 90%;
-      max-width: 450px;
-      height: 350px;
+      max-width: 500px;
+      height: 400px;
       cursor: pointer;
     }
     .flip-card {
@@ -64,6 +64,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center center;
     }
     .back {
       background: #ffedf3;
@@ -79,9 +80,21 @@
       color: #333;
       line-height: 1.4;
     }
+    .long-message {
+    flex-direction: column;
+    align-items: flex-start;
+      justify-content: flex-start;
+    overflow-y: auto;
+    max-height: 100%;
+      text-align: left;      /* fica mais legível no scroll */
+}
+    .back.longmessage p {
+  margin: 0;
+  line-height: 1.4;
+}
     /* 1) Dá um espaçamento acima do swiper */
 .swiper-container, .messages-swiper {
-  margin-top: 50px;  /* aumenta à vontade: 40px, 60px… */
+  margin-top: 10px;  /* aumenta à vontade: 40px, 60px… */
 }
 
 /* 2) Centraliza o conteúdo de cada slide no eixo vertical */
@@ -117,10 +130,13 @@
         <div class="flip-container" onclick="this.querySelector('.flip-card').classList.toggle('flipped')">
           <div class="flip-card">
             <div class="face front">
-              <img src="img/img1.jpg" alt="Mensagem 1">
+              <img src="Mensagens/mensagemLorena.JPG" alt="Mensagem 1">
             </div>
             <div class="face back">
-              <p>“Tainah, que seu dia seja tão lindo quanto seu sorriso!”<br><em>— Nome 1</em></p>
+              <p>Quando você nasceu sempre cantava essa música pensando em vc…
+Une o meu viver com o seu viver, vc só precisa existir para me completar!
+Te amo feliz 26!
+Te amo infinito meu primeiro amor ❤<br><em>— Lorena</em></p>
             </div>
           </div>
         </div>
@@ -131,10 +147,12 @@
         <div class="flip-container" onclick="this.querySelector('.flip-card').classList.toggle('flipped')">
           <div class="flip-card">
             <div class="face front">
-              <img src="img/img1.jpg" alt="Mensagem 2">
+              <img src="Mensagens/mensagemLunna.JPG" alt="Mensagem 2">
             </div>
-            <div class="face back">
-              <p>“Parabéns pelo seu dia, Tainah! Te admiro demais.”<br><em>— Nome 2</em></p>
+            <div class="face back long-message">
+              <p>“
+
+                PARABENSSS!! hoje é um dia muito especial, pois é o dia da minha irmãzinhaaa feliz aniversário Tai, eu tenho muita  sorte de conseguir te acompanhar sempre e de poder me orgulhar de você todo dia mais um pouquinho, poder ver você conquistando suas coisinhas a cada dia que passa, ver você se tornando uma grande mãe de doguinhos KSJSKK, de poder estar com você sempre mesmo que seja perdendo pra voce no uno,   pois a sua companhia é algo que me faz extremamente feliz,  e mais que isso, acolhida, sabe? saber que independentemente do que seja e de qual assunto seja eu posso contar com você, nem que seja pra sei la estudar pra um teste sei que você vai ta la pra me dar apoio emocional,  ou quebrar a cabeça entendendo os ângulos mesmo 💔 enfim, to querendo dizer que com você eu me sinto segura, mais segura do que com qualquer outro ser humano nesse universo. E isso é algo bem precioso, você é preciosa. E eu espero conseguir te retribuir isso algum dia,  mesmo que isso seja  algo sem preço algum, sabe? Se eu pudesse te escolher como minha irmã em mil universos diferentes eu tenho certeza que nem ia hesitar,(mesmo se fosse você ou a billie eilish hein). você é uma das pessoas mais importantes pra mim e uma inspiração mesmo,  pois eu observo todos os passos que você toma, como mia irmãzinha,  como filha de lorena, como irmã de lucca (mehhh) como melhor amiga e como pessoa mesmo. Eu te amo infinitamente,  e eu espero que você saiba que independentemente do que seja você pode contar comigo também. espero que não só hoje, como o resto do ano e dos anos seguintes sejam muito bons pra você e que você continue seguindo no caminho que você quer, (eu quero um sobrinho ok). É isso eu te amo muitao e feliz 26 anos tá ficando velha isso sim”<br><em>— Lunna</em></p>
             </div>
           </div>
         </div>
@@ -145,10 +163,10 @@
         <div class="flip-container" onclick="this.querySelector('.flip-card').classList.toggle('flipped')">
           <div class="flip-card">
             <div class="face front">
-              <img src="img/img1.jpg" alt="Mensagem 3">
+              <img src="Mensagens/mensagemLucca.jpg" alt="Mensagem 3">
             </div>
             <div class="face back">
-              <p>“Hoje é dia de celebrar a pessoa incrível que você é!”<br><em>— Nome 3</em></p>
+              <p>“Feliz aniversário! Te amo seu irmão lindo (eclipse)”<br><em>— Lucca</em></p>
             </div>
           </div>
         </div>
@@ -162,7 +180,9 @@
               <img src="img/img1.jpg" alt="Mensagem 4">
             </div>
             <div class="face back">
-              <p>“Tainah, que cada momento do seu novo ano seja mágico.”<br><em>— Nome 4</em></p>
+              <p>“Tai, ver-te crescer em diversos aspectos da vida é um prazer enorme ...
+Viver e Amar é o que desejo-te ...
+Felicidades... Vida Longa...”<br><em>— Fabio</em></p>
             </div>
           </div>
         </div>
@@ -176,7 +196,8 @@
               <img src="img/img1.jpg" alt="Mensagem 5">
             </div>
             <div class="face back">
-              <p>“Feliz aniversário! Amo cada detalhe seu.”<br><em>— Nome 5</em></p>
+              <p>“Parabéns pelo seu dia!!! Desejo que nunca te falte saúde, amor e que sobrem motivos para sorrisos como este!!! É muito bom poder fazer parte de sua história!!!
+Amo você🥰<br><em>— Rita</em></p>
             </div>
           </div>
         </div>
@@ -190,7 +211,7 @@
               <img src="img/img1.jpg" alt="Mensagem 6">
             </div>
             <div class="face back">
-              <p>“Que seu dia seja repleto de amor e alegria!”<br><em>— Nome 6</em></p>
+              <p>“Que seu dia seja repleto de amor e alegria!”<br><em>— Vitor</em></p>
             </div>
           </div>
         </div>
@@ -201,10 +222,10 @@
         <div class="flip-container" onclick="this.querySelector('.flip-card').classList.toggle('flipped')">
           <div class="flip-card">
             <div class="face front">
-              <img src="img/img1.jpg" alt="Mensagem 7">
+              <img src="Mensagens/mensagemAdriana.JPG" alt="Mensagem 7">
             </div>
             <div class="face back">
-              <p>“Hoje celebramos a pessoa mais especial!”<br><em>— Nome 7</em></p>
+              <p>“Parabens para essa mulher linda inteligente e sensível,  eu e a yara somos gratas por te ter na nossa vida, tia tainah❤️"<br><em>— Adriana</em></p>
             </div>
           </div>
         </div>
@@ -215,10 +236,10 @@
         <div class="flip-container" onclick="this.querySelector('.flip-card').classList.toggle('flipped')">
           <div class="flip-card">
             <div class="face front">
-              <img src="img/img1.jpg" alt="Mensagem 8">
+              <img src="Mensagens/mensagemYara.JPG" alt="Mensagem 8">
             </div>
             <div class="face back">
-              <p>“Tainah, que seu novo ciclo seja inesquecível!”<br><em>— Nome 8</em></p>
+              <p>“Parabens para essa mulher linda inteligente e sensível,  eu e a yara somos gratas por te ter na nossa vida, tia tainah❤”<br><em>— Yara</em></p>
             </div>
           </div>
         </div>
@@ -229,10 +250,13 @@
         <div class="flip-container" onclick="this.querySelector('.flip-card').classList.toggle('flipped')">
           <div class="flip-card">
             <div class="face front">
-              <img src="img/img1.jpg" alt="Mensagem 9">
+              <img src="Mensagens/mensagemJoao.jpg" alt="Mensagem 9">
             </div>
             <div class="face back">
-              <p>“Sua luz ilumina tudo ao redor. Feliz dia!”<br><em>— Nome 9</em></p>
+              <p>“Parabéns querida amiga, colega e compincha. Espero que tenhas um ótimo dia de aniversário e que aproveites muito em Malta 🇲🇹
+Da faculdade, para o mundo de trabalho e espero que para a vida, sabes que estarei aqui para destilarmos ódio sobre a classe farmacêutica e sobre as pessoas de direita no geral 🤭
+Um grande beijinho do teu asiático preferido e da sua cônjuge 😘
+”<br><em>— João</em></p>
             </div>
           </div>
         </div>
@@ -246,13 +270,56 @@
               <img src="img/img1.jpg" alt="Mensagem 10">
             </div>
             <div class="face back">
-              <p>“Te desejo um ano cheio de sonhos realizados.”<br><em>— Nome 10</em></p>
+              <p>“Te desejo um ano cheio de sonhos realizados.”<br><em>— Ana Luiza</em></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+          <!-- Slide 11 -->
+      <div class="swiper-slide">
+        <div class="flip-container" onclick="this.querySelector('.flip-card').classList.toggle('flipped')">
+          <div class="flip-card">
+            <div class="face front">
+              <img src="img/img1.jpg" alt="Mensagem 11">
+            </div>
+            <div class="face back">
+              <p>“Te desejo um ano cheio de sonhos realizados.”<br><em>— Luiza</em></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <!-- Slide 12 -->
+      <div class="swiper-slide">
+        <div class="flip-container" onclick="this.querySelector('.flip-card').classList.toggle('flipped')">
+          <div class="flip-card">
+            <div class="face front">
+              <img src="img/img1.jpg" alt="Mensagem 12">
+            </div>
+            <div class="face back">
+              <p>“Te desejo um ano cheio de sonhos realizados.”<br><em>— Julia</em></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <!-- Slide 13 -->
+      <div class="swiper-slide">
+        <div class="flip-container" onclick="this.querySelector('.flip-card').classList.toggle('flipped')">
+          <div class="flip-card">
+            <div class="face front">
+              <img src="Jornada_ano2/ano2_2.jpg" alt="Mensagem 13">
+            </div>
+            <div class="face back">
+              <p>“Te desejo um ano cheio de sonhos realizados.”<br><em>— Gabriel</em></p>
             </div>
           </div>
         </div>
       </div>
 
     </div>
+
 
     <!-- Navegação -->
     <div class="swiper-button-next"></div>
@@ -277,7 +344,7 @@
     spaceBetween: 20,
     breakpoints: {
       0:   { slidesPerView: 1 },
-      768: { slidesPerView: 2 }
+      768: { slidesPerView: 1 },
     },
     navigation: {
       nextEl: '.swiper-button-next',
